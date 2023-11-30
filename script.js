@@ -1,6 +1,24 @@
-function minDate(dates) {
-  //write you code here
+	function minDate(dates) {
+  if (dates.length === 0) {
+    return null;
+  }
+
+  // Convert string dates to Date objects
+  const dateObjects = dates.map(date => new Date(date));
+
+  // Find the minimum date
+  const minDate = new Date(Math.min.apply(null, dateObjects));
+
+  // Format the minimum date as "YYYY/MM/DD"
+  const year = minDate.getFullYear();
+  const month = String(minDate.getMonth() + 1).padStart(2, '0');
+  const day = String(minDate.getDate()).padStart(2, '0');
+
+  return `${year}/${month}/${day}`;
 }
+
+	
+
 
 // Do not change the code
 
@@ -37,4 +55,4 @@ var dates = [
   "2023/03/30",
 ];
 
-alert(minDate(dates));
+//alert(minDate(dates));
